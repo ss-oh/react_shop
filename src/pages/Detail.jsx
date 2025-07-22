@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import TabContent from "../components/TabContent";
 import {useDispatch} from "react-redux";
 import {addItem} from "../redux/cartSlice";
+import {setWatched} from "../redux/watchedSlice";
 
 function Detail({fruit}) {
   const {id} = useParams();
@@ -43,6 +44,28 @@ function Detail({fruit}) {
       return () => clearTimeout(timer); // 정리
     }
   }, [count]);
+
+  useEffect(() => {
+    // 방금 들어온 상품의 id를 로컬스토리지에 추가
+    let watched = localStorage.getItem("watched");
+    watched = JSON.parse(watched);
+    // includes: 해당 배열에 값이 있으면 true,없으면 false
+    // 이미 최근 본 상품이 3개일때 새로운걸 추가해야 하므로 기존것을 하나 지우고 추가
+    // 갯수로만 삭제를 하니까 중복된 것을 보게되면 문제가 생김
+    // 이미 들어있는 것이면 지우지 않아도 됨 -> 없을때만 삭제를 하면 될듯
+    // if (watched.length === 3 && !watched.includes(id)) {
+    //   watched.pop();
+    // }
+    watched = [id, ...watched];
+    watched = new Set(watched);
+    // set은 배열이 아니기 때문에 중복 제거 후 다시 배열로 변환
+    watched = Array.from(watched);
+    if (watched.length === 4) {
+      watched.pop();
+    }
+    localStorage.setItem("watched", JSON.stringify(watched));
+    dispatch(setWatched(watched));
+  }, []);
 
   if (!selectedFruit) {
     return <div>해당 상품이 없습니다.</div>;

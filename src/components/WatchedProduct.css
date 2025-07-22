@@ -1,0 +1,23 @@
+.WatchedProduct {
+  max-width: 120px;
+  margin: 0 auto;
+  padding: 5px;
+  position: fixed;
+  right: 5px;
+  top: 200px;
+  text-align: center;
+}
+
+.WatchedProduct .cards {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 5px;
+}
+.WatchedProduct .card {
+  margin-bottom: 5px;
+}
+
+.WatchedProduct p:first-child {
+  font-weight: 600;
+}
