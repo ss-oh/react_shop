@@ -1,0 +1,12 @@
+.main-bg {
+  height: 300px;
+  /* background-image: url('./bg.jpg'); */
+  background-size: cover;
+}
+
+.App.b {
+  border: 1px solid red;
+}
+.container {
+  border: 1px solid blue;
+}
