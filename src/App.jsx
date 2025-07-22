@@ -8,6 +8,7 @@ import Detail from "./pages/Detail";
 import About from "./pages/About";
 import styled from "styled-components";
 import axios from "axios";
+import Cart from "./pages/Cart";
 
 // styled-component 기본 사용법
 // const 컴포넌트이름지정 = styled.태그명`
@@ -68,6 +69,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage fruit={fruit} />} />
         <Route path="/detail/:id" element={<Detail fruit={fruit} />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/test/1/abc" element={<h1>테스트페이지</h1>} />
 
         <Route path="/about" element={<About />}>
