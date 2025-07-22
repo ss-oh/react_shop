@@ -1,5 +1,5 @@
 import {use, useEffect, useState} from "react";
-import "./TabContent.css";
+import "./Tabcontent.css";
 
 function TabContent({tabNumber}) {
   const [fade, setFade] = useState("");
