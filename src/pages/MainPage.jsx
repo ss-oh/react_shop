@@ -16,7 +16,7 @@ function MainPage({fruit}) {
       ></div>
 
       <div className="container b">
-        <div className="row" style={{paddingTop: "20px"}}>
+        <div className="row" style={{paddingTop: "20px", textAlign: "center"}}>
           {visibleFruit.map((data, i) => {
             return <Card data={data} key={i} />;
           })}
